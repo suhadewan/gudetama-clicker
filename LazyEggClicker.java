@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 class LazyEggClicker{
 	
@@ -22,6 +23,7 @@ class LazyEggClicker{
 	Font font1;
 	Font font2;
 	EggHandler handled = new EggHandler();
+	Timer timer;
 	
 	public static void main(String[] args) {
 		new LazyEggClicker();
@@ -59,6 +61,7 @@ class LazyEggClicker{
 		eggButton.setBorder(null);
 		//eggButton.setIcon(egg);
 		eggButton.addActionListener(handled);
+		eggButton.setActionCommand("egg");
 		eggPanel.add(eggButton);
 		
 		JPanel counterPanel = new JPanel();
@@ -111,11 +114,35 @@ class LazyEggClicker{
 		window.setVisible(true);
 	}
 	
+	public void setTimer() {
+		timer = new Timer(1000, new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent x) {
+				
+				eggCounter++;
+				counterLabel.setText(eggCounter + " egg");
+			}
+		});
+	}
+	
+	
 	public class EggHandler implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
-			eggCounter++;
-			counterLabel.setText(eggCounter + " eggs");
+			String action = e.getActionCommand();
+			
+			switch(action) {
+			case "egg":
+				eggCounter++;
+				counterLabel.setText(eggCounter + " eggs");
+				break;
+			case "Blanket":
+				setTimer();
+				timer.start();
+			}
+			
+			
 		}
 	}
 }
