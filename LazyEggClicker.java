@@ -3,7 +3,9 @@ class LazyEggClicker{
 		new LazyEggClicker()
 	}
 	public LazyEggClicker() {
+		createUI();
+	}
+	public void createUI() {
 		
 	}
-	
 }
