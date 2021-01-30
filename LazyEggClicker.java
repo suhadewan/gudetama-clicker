@@ -58,13 +58,14 @@ class LazyEggClicker{
 		eggPanel.setBackground(Color.orange);
 		window.add(eggPanel);
 		
-		//ImageIcon egg = new ImageIcon(getClass().getClassLoader().getResource(null));
+		ImageIcon egg = new ImageIcon(getClass().getClassLoader().getResource(
+				"pictures/eggbutton.png"));
 		
 		JButton eggButton = new JButton();
 		eggButton.setBackground(Color.green);
 		eggButton.setFocusPainted(false);
 		eggButton.setBorder(null);
-		//eggButton.setIcon(egg);
+		eggButton.setIcon(egg);
 		eggButton.addActionListener(handled);
 		eggButton.setActionCommand("egg");
 		eggPanel.add(eggButton);
@@ -159,11 +160,24 @@ class LazyEggClicker{
 				counterLabel.setText(eggCounter + " eggs");
 				break;
 			case "Blanket":
-				perSec = perSec + 0.1;
-				timerUpdate();
+				if (eggCounter >= 100) {
+					eggCounter -= 100;
+					perSec += 0.1;
+					timerUpdate();
+				}
+			case "Love":
+				if (eggCounter >= 1000) {
+					eggCounter -= 1000;
+					perSec += 1;
+					timerUpdate();
+				}
+			case "Music":
+				if (eggCounter >= 1) {
+					eggCounter -= 5000;
+					perSec += 5;
+					timerUpdate();
+				}
 			}
-			
-			
 		}
 	}
 }
