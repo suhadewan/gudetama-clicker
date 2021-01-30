@@ -12,18 +12,28 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.Timer;
 
-class LazyEggClicker{
-	
+class LazyEggClicker {
+
 	JLabel counterLabel;
 	JButton button1;
 	JButton button2;
 	JButton button3;
 	JButton button4;
 	JLabel perSecLabel;
-	int eggCounter;
+	double eggCounter;
 	int timerSpeed;
 	int blanketNum;
-	int blanketPrice;
+	int blanketPrice = 1;
+	int loveNum;
+	int lovePrice=10;
+	int musicNum;
+	int musicPrice=50;
+	int incubatorNum;
+	int incubatorPrice = 100;
+	int baconNum;
+	int baconPrice;
+	int farmNum;
+	int farmPrice;
 	double perSec;
 	boolean timerOn;
 	Font font1;
@@ -41,7 +51,9 @@ class LazyEggClicker{
 		perSec = 0;
 		eggCounter = 0;
 		blanketNum = 0;
-		blanketPrice = 10;
+		loveNum = 0;
+		musicNum = 0;
+		incubatorNum = 0;
 		createFont();
 		createUI();
 	}
@@ -64,12 +76,7 @@ class LazyEggClicker{
 		eggPanel.setBackground(Color.orange);
 		window.add(eggPanel);
 
-		
-		ImageIcon egg = new ImageIcon(getClass().getClassLoader().getResource(
-				"pictures/eggbutton.png"));
-		
-
-		ImageIcon egg = new ImageIcon(getClass().getClassLoader().getResource(null));
+		ImageIcon egg = new ImageIcon(getClass().getClassLoader().getResource("pictures/eggbutton.png"));
 
 		JButton eggButton = new JButton();
 		eggButton.setBackground(Color.green);
@@ -78,7 +85,6 @@ class LazyEggClicker{
 
 		eggButton.setIcon(egg);
 
-		eggButton.setIcon(egg);
 		eggButton.addActionListener(handled);
 		eggButton.setActionCommand("egg");
 		eggPanel.add(eggButton);
@@ -89,7 +95,7 @@ class LazyEggClicker{
 		counterPanel.setLayout(new GridLayout(2, 1));
 		window.add(counterPanel);
 
-		counterLabel = new JLabel(eggCounter + " eggs");
+		counterLabel = new JLabel(String.format("%.0f eggs", eggCounter));
 		counterLabel.setForeground(Color.white);
 		counterLabel.setFont(font1);
 		counterPanel.add(counterLabel);
@@ -129,12 +135,12 @@ class LazyEggClicker{
 		button4.addActionListener(handled);
 		button4.setActionCommand("Incubator");
 		itemPanel.add(button4);
-		
+
 		JPanel messagePanel = new JPanel();
 		messagePanel.setBounds(500, 70, 250, 150);
 		messagePanel.setBackground(Color.black);
 		window.add(messagePanel);
-		
+
 		messageText = new JTextArea();
 		messageText.setBounds(500, 70, 250, 150);
 		messageText.setForeground(Color.white);
@@ -154,8 +160,8 @@ class LazyEggClicker{
 			@Override
 			public void actionPerformed(ActionEvent x) {
 
-				eggCounter++;
-				counterLabel.setText(eggCounter + " egg");
+				eggCounter += perSec;
+				counterLabel.setText(String.format("%.0f eggs", eggCounter));
 			}
 		});
 	}
@@ -166,9 +172,8 @@ class LazyEggClicker{
 		} else if (timerOn == true) {
 			timer.stop();
 		}
-		double speed = 1 / perSec * 1000;
-		timerSpeed = (int) Math.round(speed);
-		String str = String.format("%.2f", perSec);
+		timerSpeed = 1000;
+		String str = String.format("%.1f", perSec);
 
 		perSecLabel.setText("per second: " + str);
 
@@ -184,42 +189,41 @@ class LazyEggClicker{
 			switch (action) {
 			case "egg":
 				eggCounter++;
-				counterLabel.setText(eggCounter + " eggs");
+				counterLabel.setText(String.format("%.0f eggs", eggCounter));
 				break;
 			case "Blanket":
-<<<<<<< HEAD
-				if (eggCounter >= 100) {
-					eggCounter -= 100;
+				if (eggCounter >= blanketPrice) {
+					eggCounter -= blanketPrice;
+					blanketPrice += 1;
 					perSec += 0.1;
+					blanketNum++;
+					button1.setText(String.format("Blanket (%d)", blanketNum));
 					timerUpdate();
+					break;
 				}
 			case "Love":
-				if (eggCounter >= 1000) {
-					eggCounter -= 1000;
+				if (eggCounter >= lovePrice) {
+					eggCounter -= lovePrice;
+					lovePrice += 5;
 					perSec += 1;
+					loveNum++;
+					button2.setText(String.format("Love (%d)", loveNum));
 					timerUpdate();
+					break;
 				}
 			case "Music":
-				if (eggCounter >= 1) {
-					eggCounter -= 5000;
-					perSec += 5;
+				if (eggCounter >= musicPrice) {
+					eggCounter -= musicPrice;
+					musicPrice += 10;
+					perSec += 10;
+					musicNum++;
+					button3.setText(String.format("Music (%d)", musicNum));
 					timerUpdate();
-				}
-			}
-=======
-				if (eggCounter >= blanketPrice) {
-					eggCounter = eggCounter - blanketPrice;
-					blanketPrice = blanketPrice + 5;
-					counterLabel.setText(eggCounter + " eggs");
-					
-					blanketNum++;
-					button1.setText("Blanket " + "(" + blanketNum + ")");
-					perSec = perSec + 0.1;
-					timerUpdate();
+					break;
 				}
 			}
 
->>>>>>> 6495061b43ca5714ffe011c25d7859fddd2f00b2
 		}
 	}
+
 }
