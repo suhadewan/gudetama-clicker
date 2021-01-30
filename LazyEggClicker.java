@@ -53,6 +53,8 @@ class LazyEggClicker{
 		eggButton.setBackground(Color.green);
 		eggButton.setFocusPainted(false);
 		eggButton.setBorder(null);
+		//eggButton.setIcon(egg);
+		eggButton.addActionListener(handled);
 		eggPanel.add(eggButton);
 		
 		JPanel counterPanel = new JPanel();
@@ -78,6 +80,7 @@ class LazyEggClicker{
 
 		public void actionPerformed(ActionEvent e) {
 			eggCounter++;
+			counterLabel.setText(eggCounter + " eggs");
 		}
 	}
 }
