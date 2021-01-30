@@ -69,7 +69,7 @@ class LazyEggClicker{
 				"pictures/eggbutton.png"));
 		
 
-		// ImageIcon egg = new ImageIcon(getClass().getClassLoader().getResource(null));
+		ImageIcon egg = new ImageIcon(getClass().getClassLoader().getResource(null));
 
 		JButton eggButton = new JButton();
 		eggButton.setBackground(Color.green);
@@ -78,7 +78,7 @@ class LazyEggClicker{
 
 		eggButton.setIcon(egg);
 
-		// eggButton.setIcon(egg);
+		eggButton.setIcon(egg);
 		eggButton.addActionListener(handled);
 		eggButton.setActionCommand("egg");
 		eggPanel.add(eggButton);
