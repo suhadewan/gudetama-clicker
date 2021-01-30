@@ -13,6 +13,10 @@ import javax.swing.JPanel;
 class LazyEggClicker{
 	
 	JLabel counterLabel;
+	JButton button1;
+	JButton button2;
+	JButton button3;
+	JButton button4;
 	JLabel perSecLabel;
 	int eggCounter;
 	Font font1;
@@ -72,6 +76,37 @@ class LazyEggClicker{
 		perSecLabel.setForeground(Color.white);
 		perSecLabel.setFont(font2);
 		counterPanel.add(perSecLabel);
+		
+		JPanel itemPanel = new JPanel();
+		itemPanel.setBounds(500, 170, 250, 250);
+		itemPanel.setBackground(Color.blue);
+		itemPanel.setLayout(new GridLayout(4,1));
+		window.add(itemPanel);
+		
+		button1 = new JButton("Blanket");
+		button1.setFont(font1);
+		button1.setFocusPainted(false);
+		button1.addActionListener(handled);
+		button1.setActionCommand("Blanket");
+		itemPanel.add(button1);
+		button2 = new JButton("Love");
+		button2.setFont(font1);
+		button2.setFocusPainted(false);
+		button2.addActionListener(handled);
+		button2.setActionCommand("Love");
+		itemPanel.add(button2);
+		button3 = new JButton("Music");
+		button3.setFont(font1);
+		button3.setFocusPainted(false);
+		button3.addActionListener(handled);
+		button3.setActionCommand("Music");
+		itemPanel.add(button3);
+		button4 = new JButton("Incubator");
+		button4.setFont(font1);
+		button4.setFocusPainted(false);
+		button4.addActionListener(handled);
+		button4.setActionCommand("Incubator");
+		itemPanel.add(button4);
 		
 		window.setVisible(true);
 	}
