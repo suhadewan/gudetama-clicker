@@ -20,6 +20,9 @@ class LazyEggClicker{
 	JButton button4;
 	JLabel perSecLabel;
 	int eggCounter;
+	int timerSpeed;
+	double perSec;
+	boolean timerOn;
 	Font font1;
 	Font font2;
 	EggHandler handled = new EggHandler();
@@ -30,6 +33,8 @@ class LazyEggClicker{
 	}
 	
 	public LazyEggClicker() {
+		timerOn = false;
+		perSec = 0;
 		eggCounter = 0;
 		createFont();
 		createUI();
@@ -115,7 +120,7 @@ class LazyEggClicker{
 	}
 	
 	public void setTimer() {
-		timer = new Timer(1000, new ActionListener() {
+		timer = new Timer(timerSpeed, new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent x) {
@@ -126,6 +131,22 @@ class LazyEggClicker{
 		});
 	}
 	
+	public void timerUpdate() {
+		if (timerOn == false) {
+			timerOn = true;
+		}
+		else if(timerOn == true) {
+			timer.stop();
+		}
+		double speed = 1/perSec*1000;
+		timerSpeed = (int)Math.round(speed);
+		String str = String.format("%.2f", perSec);
+		
+		perSecLabel.setText("per second: " + str);
+		
+		setTimer();
+		timer.start();
+	}
 	
 	public class EggHandler implements ActionListener {
 
@@ -138,8 +159,8 @@ class LazyEggClicker{
 				counterLabel.setText(eggCounter + " eggs");
 				break;
 			case "Blanket":
-				setTimer();
-				timer.start();
+				perSec = perSec + 0.1;
+				timerUpdate();
 			}
 			
 			
