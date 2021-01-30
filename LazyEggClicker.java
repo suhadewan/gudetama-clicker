@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,6 +14,8 @@ class LazyEggClicker{
 	JLabel counterLabel;
 	JLabel perSecLabel;
 	int eggCounter;
+	Font font1;
+	Font font2;
 	EggHandler handled = new EggHandler();
 	
 	public static void main(String[] args) {
@@ -21,10 +24,13 @@ class LazyEggClicker{
 	
 	public LazyEggClicker() {
 		eggCounter = 0;
+		createFont();
 		createUI();
 	}
 	
 	public void createFont() {
+		font1 = new Font("Comic Sans MS", Font.PLAIN, 32);
+		font2 = new Font("Comic Sans MS", Font.PLAIN, 15);
 		
 	}
 	
@@ -51,7 +57,18 @@ class LazyEggClicker{
 		JPanel counterPanel = new JPanel();
 		counterPanel.setBounds(200, 100, 200, 100);
 		counterPanel.setBackground(Color.magenta);
+		counterPanel.setLayout(new GridLayout(2,1));
+		window.add(counterPanel);
 		
+		counterLabel = new JLabel(eggCounter + " eggs");
+		counterLabel.setForeground(Color.white);
+		counterLabel.setFont(font1);
+		counterPanel.add(counterLabel);
+	
+		perSecLabel = new JLabel();
+		perSecLabel.setForeground(Color.white);
+		perSecLabel.setFont(font2);
+		counterPanel.add(perSecLabel);
 		
 		window.setVisible(true);
 	}
