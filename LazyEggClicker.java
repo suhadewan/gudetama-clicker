@@ -121,18 +121,28 @@ class LazyEggClicker {
 		itemPanel.setLayout(new GridLayout(1, 6));
 		window.add(itemPanel);
 
-		button1 = new JButton("Blanket");
-		button1.setFont(font1);
+		ImageIcon blanket = new ImageIcon(getClass().getClassLoader().getResource("pictures/blanket.png"));
+		
+		button1 = new JButton();
+		button1.setBackground(Color.white);
 		button1.setFocusPainted(false);
+		button1.setBorder(null);
+		button1.setIcon(blanket);
 		button1.addActionListener(handled);
-		button1.setActionCommand("Blanket");
+		button1.setActionCommand("blanket");
 		itemPanel.add(button1);
-		button2 = new JButton("Love");
-		button2.setFont(font1);
+		
+		ImageIcon love = new ImageIcon(getClass().getClassLoader().getResource("pictures/love.png"));
+		
+		button2 = new JButton();
+		button2.setBackground(Color.white);
 		button2.setFocusPainted(false);
+		button2.setBorder(null);
+		button2.setIcon(love);
 		button2.addActionListener(handled);
-		button2.setActionCommand("Love");
+		button2.setActionCommand("love");
 		itemPanel.add(button2);
+		
 		button3 = new JButton("Music");
 		button3.setFont(font1);
 		button3.setFocusPainted(false);
@@ -213,7 +223,7 @@ class LazyEggClicker {
 				eggCounter++;
 				counterLabel.setText(String.format("%.0f eggs", eggCounter));
 				break;
-			case "Blanket":
+			case "blanket":
 				if (eggCounter >= blanketPrice) {
 					eggCounter -= blanketPrice;
 					blanketPrice += 1;
@@ -223,7 +233,7 @@ class LazyEggClicker {
 					timerUpdate();
 				}
 				break;
-			case "Love":
+			case "love":
 				if (eggCounter >= lovePrice) {
 					eggCounter -= lovePrice;
 					lovePrice += 5;
