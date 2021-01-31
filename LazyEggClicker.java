@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,37 +18,39 @@ import javax.swing.Timer;
 
 class LazyEggClicker {
 
-	JLabel counterLabel;
-	JButton button1;
-	JButton button2;
-	JButton button3;
-	JButton button4;
-	JButton button5;
-	JButton button6;
-	JLabel perSecLabel;
-	double eggCounter;
-	int timerSpeed;
-	int blanketNum;
-	int blanketPrice = 1;
-	int loveNum;
-	int lovePrice = 10;
-	int musicNum;
-	int musicPrice = 50;
-	int sleepNum;
-	int sleepPrice = 100;
-	int homeNum;
-	int homePrice = 150;
-	int lazyNum;
-	int lazyPrice = 200;
-	double perSec;
-	boolean timerOn;
-	Font font1;
-	Font font2;
-	EggHandler egghandled = new EggHandler();
-	Timer timer;
-	JTextArea messageText;
-	MouseHandler mousehandled = new MouseHandler();
-	JTextArea descriptionText;
+	private JLabel counterLabel;
+	private JButton button1;
+	private JButton button2;
+	private JButton button3;
+	private JButton button4;
+	private JButton button5;
+	private JButton button6;
+	private JLabel perSecLabel;
+	private double eggCounter;
+	private int timerSpeed;
+	private int blanketNum;
+	private int blanketPrice = 1;
+	private int loveNum;
+	private int lovePrice = 10;
+	private int musicNum;
+	private int musicPrice = 50;
+	private int sleepNum;
+	private int sleepPrice = 100;
+	private int homeNum;
+	private int homePrice = 150;
+	private int lazyNum;
+	private int lazyPrice = 200;
+	private double perSec;
+	private boolean timerOn;
+	private Font font1;
+	private Font font2;
+	private EggHandler egghandled = new EggHandler();
+	private Timer timer;
+	private JTextArea messageText;
+	private MouseHandler mousehandled = new MouseHandler();
+	private JTextArea descriptionText;
+	private JTextArea descriptionText2;
+	private JTextArea descriptionText3;
 	
 
 	public static void main(String[] args) {
@@ -117,7 +120,7 @@ class LazyEggClicker {
 		JPanel messagePanel = new JPanel();
 		messagePanel.setBounds(365,170,335,104);
 		messagePanel.setBackground(Color.orange);
-		messagePanel.setLayout(new GridLayout(2, 1));
+		messagePanel.setLayout(new GridLayout(4, 1));
 		window.add(messagePanel);
 		
 		messageText = new JTextArea();
@@ -133,6 +136,20 @@ class LazyEggClicker {
 		descriptionText.setBackground(Color.orange);
 		descriptionText.setFont(font2);
 		messagePanel.add(descriptionText);
+		
+		descriptionText2 = new JTextArea();
+		descriptionText2.setBounds(365,170,335,104);
+		descriptionText2.setForeground(Color.white);
+		descriptionText2.setBackground(Color.orange);
+		descriptionText2.setFont(font2);
+		messagePanel.add(descriptionText2);
+		
+		descriptionText3 = new JTextArea();
+		descriptionText3.setBounds(365,170,335,104);
+		descriptionText3.setForeground(Color.white);
+		descriptionText3.setBackground(Color.orange);
+		descriptionText3.setFont(font2);
+		messagePanel.add(descriptionText3);
 
 		counterLabel = new JLabel(String.format("%.0f eggs", eggCounter));
 		counterLabel.setForeground(Color.white);
@@ -371,23 +388,40 @@ class LazyEggClicker {
 			JButton button = (JButton)e.getSource();
 			
 			if (button == button1 ) {
-				messageText.setText("blanket");
-				descriptionText.setText("Autoclicks once every 10 seconds");
+				messageText.setText("Blanket");
+				descriptionText.setText("keep gudetama warm");
+				descriptionText2.setText("increases by 0.1 eggs per sec");
+				descriptionText3.setText("price: 1 egg");
 			}
 			else if (button == button2) {
-				messageText.setText("love");
+				messageText.setText("Love");
+				descriptionText.setText("give gudetama love");
+				descriptionText2.setText("increases by 1 eggs per sec");
+				descriptionText3.setText("price: 10 eggs");
 			}
 			else if (button == button3) {
-				messageText.setText("music");
+				messageText.setText("Music");
+				descriptionText.setText("gudetama loves groovy music");
+				descriptionText2.setText("increases by 10 eggs per sec");
+				descriptionText3.setText("price: 50 eggs");
 			}
 			else if (button == button4) {
-				messageText.setText("sleep");
+				messageText.setText("Sleep");
+				descriptionText.setText("gudetama's nap time");
+				descriptionText2.setText("increases by 15 eggs per sec");
+				descriptionText3.setText("price: 100 eggs");
 			}
 			else if (button == button5) {
-				messageText.setText("home");
+				messageText.setText("Home");
+				descriptionText.setText("gudetama's shell and gudetama are one");
+				descriptionText2.setText("increases by 20 eggs per sec");
+				descriptionText3.setText("price: 150 eggs");
 			}
 			else if (button == button6) {
-				messageText.setText("lazy");
+				messageText.setText("Lazy");
+				descriptionText.setText("gudetama the lazy egg");
+				descriptionText2.setText("increases by 30 eggs per sec");
+				descriptionText3.setText("price: 200 eggs");
 			}
 		}
 
@@ -395,6 +429,8 @@ class LazyEggClicker {
 		public void mouseExited(MouseEvent e) {
 		    messageText.setText(null);
 		    descriptionText.setText(null);
+		    descriptionText2.setText(null);
+		    descriptionText3.setText(null);
 			}
 			
 		
