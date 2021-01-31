@@ -6,16 +6,24 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.GridLayout;
 
-import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+/**
+ * Gudeclicker game
+ * 
+ * @author heathervu
+ * @author mariamsinger
+ * @author suhad
+ *
+ */
 class LazyEggClicker {
+
+	// fields
 
 	private JLabel counterLabel;
 	private JButton button1;
@@ -62,12 +70,14 @@ class LazyEggClicker {
 	private JButton sticker10;
 	private JButton sticker11;
 	private JButton sticker12;
-	
 
 	public static void main(String[] args) {
 		new LazyEggClicker();
 	}
 
+	/**
+	 * LazyEggClicker Constructor
+	 */
 	public LazyEggClicker() {
 		timerOn = false;
 		perSec = 0;
@@ -82,12 +92,18 @@ class LazyEggClicker {
 		createUI();
 	}
 
+	/**
+	 * method to create font
+	 */
 	public void createFont() {
 		font1 = new Font("Comic Sans MS", Font.PLAIN, 32);
 		font2 = new Font("Comic Sans MS", Font.PLAIN, 15);
 
 	}
 
+	/**
+	 * method to create the UI
+	 */
 	public void createUI() {
 		JFrame window = new JFrame();
 		window.setSize(1440, 1024);
@@ -102,7 +118,6 @@ class LazyEggClicker {
 
 		JLabel titlePic = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("pictures/title.png")));
 		title.add(titlePic);
-		
 
 		JPanel eggPanel = new JPanel();
 		eggPanel.setBounds(30, 274, 670, 560);
@@ -127,36 +142,36 @@ class LazyEggClicker {
 		counterPanel.setBackground(Color.orange);
 		counterPanel.setLayout(new GridLayout(2, 1));
 		window.add(counterPanel);
-		
+
 		JPanel messagePanel = new JPanel();
-		messagePanel.setBounds(365,170,335,104);
+		messagePanel.setBounds(365, 170, 335, 104);
 		messagePanel.setBackground(Color.orange);
 		messagePanel.setLayout(new GridLayout(4, 1));
 		window.add(messagePanel);
-		
+
 		messageText = new JLabel();
-		messageText.setBounds(365,170,335,104);
+		messageText.setBounds(365, 170, 335, 104);
 		messageText.setForeground(Color.white);
 		messageText.setBackground(Color.orange);
 		messageText.setFont(font2);
 		messagePanel.add(messageText);
-		
+
 		descriptionText = new JLabel();
-		descriptionText.setBounds(365,170,335,104);
+		descriptionText.setBounds(365, 170, 335, 104);
 		descriptionText.setForeground(Color.white);
 		descriptionText.setBackground(Color.orange);
 		descriptionText.setFont(font2);
 		messagePanel.add(descriptionText);
-		
+
 		descriptionText2 = new JLabel();
-		descriptionText2.setBounds(365,170,335,104);
+		descriptionText2.setBounds(365, 170, 335, 104);
 		descriptionText2.setForeground(Color.white);
 		descriptionText2.setBackground(Color.orange);
 		descriptionText2.setFont(font2);
 		messagePanel.add(descriptionText2);
-		
+
 		descriptionText3 = new JLabel();
-		descriptionText3.setBounds(365,170,335,104);
+		descriptionText3.setBounds(365, 170, 335, 104);
 		descriptionText3.setForeground(Color.white);
 		descriptionText3.setBackground(Color.orange);
 		descriptionText3.setFont(font2);
@@ -171,13 +186,13 @@ class LazyEggClicker {
 		perSecLabel.setForeground(Color.white);
 		perSecLabel.setFont(font2);
 		counterPanel.add(perSecLabel);
-		
-		//stickers
+
+		// stickers
 		JPanel stickerPanel = new JPanel();
 		stickerPanel.setBounds(740, 30, 670, 804);
 		stickerPanel.setLayout(new GridLayout(6, 2));
 		window.add(stickerPanel);
-		
+
 		ImageIcon lock = new ImageIcon(getClass().getClassLoader().getResource("pictures/lock.png"));
 		sticker1 = new JButton();
 		sticker1.setBackground(Color.white);
@@ -188,7 +203,7 @@ class LazyEggClicker {
 		sticker1.setActionCommand("s1");
 		sticker1.addMouseListener(mousehandled);
 		stickerPanel.add(sticker1);
-		
+
 		sticker2 = new JButton();
 		sticker2.setBackground(Color.white);
 		sticker2.setFocusPainted(false);
@@ -198,7 +213,7 @@ class LazyEggClicker {
 		sticker2.setActionCommand("s2");
 		sticker2.addMouseListener(mousehandled);
 		stickerPanel.add(sticker2);
-		
+
 		sticker3 = new JButton();
 		sticker3.setBackground(Color.white);
 		sticker3.setFocusPainted(false);
@@ -208,7 +223,7 @@ class LazyEggClicker {
 		sticker3.setActionCommand("s3");
 		sticker3.addMouseListener(mousehandled);
 		stickerPanel.add(sticker3);
-		
+
 		sticker4 = new JButton();
 		sticker4.setBackground(Color.white);
 		sticker4.setFocusPainted(false);
@@ -218,7 +233,7 @@ class LazyEggClicker {
 		sticker4.setActionCommand("s4");
 		sticker4.addMouseListener(mousehandled);
 		stickerPanel.add(sticker4);
-		
+
 		sticker5 = new JButton();
 		sticker5.setBackground(Color.white);
 		sticker5.setFocusPainted(false);
@@ -228,7 +243,7 @@ class LazyEggClicker {
 		sticker5.setActionCommand("s5");
 		sticker5.addMouseListener(mousehandled);
 		stickerPanel.add(sticker5);
-		
+
 		sticker6 = new JButton();
 		sticker6.setBackground(Color.white);
 		sticker6.setFocusPainted(false);
@@ -238,7 +253,7 @@ class LazyEggClicker {
 		sticker6.setActionCommand("s6");
 		sticker6.addMouseListener(mousehandled);
 		stickerPanel.add(sticker6);
-		
+
 		sticker7 = new JButton();
 		sticker7.setBackground(Color.white);
 		sticker7.setFocusPainted(false);
@@ -248,7 +263,7 @@ class LazyEggClicker {
 		sticker7.setActionCommand("s7");
 		sticker7.addMouseListener(mousehandled);
 		stickerPanel.add(sticker7);
-		
+
 		sticker8 = new JButton();
 		sticker8.setBackground(Color.white);
 		sticker8.setFocusPainted(false);
@@ -258,7 +273,7 @@ class LazyEggClicker {
 		sticker8.setActionCommand("s8");
 		sticker8.addMouseListener(mousehandled);
 		stickerPanel.add(sticker8);
-		
+
 		sticker9 = new JButton();
 		sticker9.setBackground(Color.white);
 		sticker9.setFocusPainted(false);
@@ -268,7 +283,7 @@ class LazyEggClicker {
 		sticker9.setActionCommand("s9");
 		sticker9.addMouseListener(mousehandled);
 		stickerPanel.add(sticker9);
-		
+
 		sticker10 = new JButton();
 		sticker10.setBackground(Color.white);
 		sticker10.setFocusPainted(false);
@@ -278,7 +293,7 @@ class LazyEggClicker {
 		sticker10.setActionCommand("s10");
 		sticker10.addMouseListener(mousehandled);
 		stickerPanel.add(sticker10);
-		
+
 		sticker11 = new JButton();
 		sticker11.setBackground(Color.white);
 		sticker11.setFocusPainted(false);
@@ -288,7 +303,7 @@ class LazyEggClicker {
 		sticker11.setActionCommand("s11");
 		sticker11.addMouseListener(mousehandled);
 		stickerPanel.add(sticker11);
-		
+
 		sticker12 = new JButton();
 		sticker12.setBackground(Color.white);
 		sticker12.setFocusPainted(false);
@@ -298,8 +313,8 @@ class LazyEggClicker {
 		sticker12.setActionCommand("s12");
 		sticker12.addMouseListener(mousehandled);
 		stickerPanel.add(sticker12);
-		
-		//store
+
+		// store
 
 		JPanel itemPanel = new JPanel();
 		itemPanel.setBounds(30, 834, 1380, 135);
@@ -307,7 +322,7 @@ class LazyEggClicker {
 		window.add(itemPanel);
 
 		ImageIcon blanket = new ImageIcon(getClass().getClassLoader().getResource("pictures/blanket.png"));
-		
+
 		button1 = new JButton();
 		button1.setBackground(Color.white);
 		button1.setFocusPainted(false);
@@ -317,9 +332,9 @@ class LazyEggClicker {
 		button1.setActionCommand("blanket");
 		button1.addMouseListener(mousehandled);
 		itemPanel.add(button1);
-		
+
 		ImageIcon love = new ImageIcon(getClass().getClassLoader().getResource("pictures/love.png"));
-		
+
 		button2 = new JButton();
 		button2.setBackground(Color.white);
 		button2.setFocusPainted(false);
@@ -329,9 +344,9 @@ class LazyEggClicker {
 		button2.setActionCommand("love");
 		button2.addMouseListener(mousehandled);
 		itemPanel.add(button2);
-		
+
 		ImageIcon music = new ImageIcon(getClass().getClassLoader().getResource("pictures/music.png"));
-		
+
 		button3 = new JButton();
 		button3.setBackground(Color.white);
 		button3.setFocusPainted(false);
@@ -341,9 +356,9 @@ class LazyEggClicker {
 		button3.setActionCommand("music");
 		button3.addMouseListener(mousehandled);
 		itemPanel.add(button3);
-		
+
 		ImageIcon sleep = new ImageIcon(getClass().getClassLoader().getResource("pictures/sleep.png"));
-		
+
 		button4 = new JButton();
 		button4.setBackground(Color.white);
 		button4.setFocusPainted(false);
@@ -353,9 +368,9 @@ class LazyEggClicker {
 		button4.setActionCommand("sleep");
 		button4.addMouseListener(mousehandled);
 		itemPanel.add(button4);
-		
+
 		ImageIcon home = new ImageIcon(getClass().getClassLoader().getResource("pictures/home.png"));
-		
+
 		button5 = new JButton();
 		button5.setBackground(Color.white);
 		button5.setFocusPainted(false);
@@ -365,9 +380,9 @@ class LazyEggClicker {
 		button5.setActionCommand("home");
 		button5.addMouseListener(mousehandled);
 		itemPanel.add(button5);
-		
+
 		ImageIcon lazy = new ImageIcon(getClass().getClassLoader().getResource("pictures/lazy.png"));
-		
+
 		button6 = new JButton();
 		button6.setBackground(Color.white);
 		button6.setFocusPainted(false);
@@ -381,6 +396,9 @@ class LazyEggClicker {
 		window.setVisible(true);
 	}
 
+	/**
+	 * method to set timer
+	 */
 	public void setTimer() {
 		timer = new Timer(timerSpeed, new ActionListener() {
 
@@ -393,6 +411,9 @@ class LazyEggClicker {
 		});
 	}
 
+	/**
+	 * method that updates the timer
+	 */
 	public void timerUpdate() {
 		if (timerOn == false) {
 			timerOn = true;
@@ -408,8 +429,16 @@ class LazyEggClicker {
 		timer.start();
 	}
 
+	/**
+	 * 
+	 * EggHandler class that implements all the actions of the buttons
+	 *
+	 */
 	public class EggHandler implements ActionListener {
 
+		/**
+		 * method for when a button is clicked
+		 */
 		public void actionPerformed(ActionEvent e) {
 			String action = e.getActionCommand();
 
@@ -484,203 +513,195 @@ class LazyEggClicker {
 				break;
 			case "s1":
 				if (eggCounter >= 1000) {
-					eggCounter -= 1000;	
+					eggCounter -= 1000;
 					ImageIcon s1 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker1.png"));
 					sticker1.setIcon(s1);
 				}
 				break;
 			case "s2":
 				if (eggCounter >= 5000) {
-					eggCounter -= 5000;	
+					eggCounter -= 5000;
 					ImageIcon s2 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker2.png"));
 					sticker2.setIcon(s2);
 				}
 				break;
 			case "s3":
 				if (eggCounter >= 10000) {
-					eggCounter -= 10000;	
+					eggCounter -= 10000;
 					ImageIcon s3 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker3.png"));
 					sticker3.setIcon(s3);
 				}
 				break;
 			case "s4":
 				if (eggCounter >= 15000) {
-					eggCounter -= 15000;	
+					eggCounter -= 15000;
 					ImageIcon s4 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker4.png"));
 					sticker4.setIcon(s4);
 				}
 				break;
 			case "s5":
 				if (eggCounter >= 20000) {
-					eggCounter -= 20000;	
+					eggCounter -= 20000;
 					ImageIcon s5 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker5.png"));
 					sticker5.setIcon(s5);
 				}
 				break;
 			case "s6":
 				if (eggCounter >= 25000) {
-					eggCounter -= 25000;	
+					eggCounter -= 25000;
 					ImageIcon s6 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker6.png"));
 					sticker6.setIcon(s6);
 				}
 				break;
 			case "s7":
 				if (eggCounter >= 30000) {
-					eggCounter -= 30000;	
+					eggCounter -= 30000;
 					ImageIcon s7 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker7.png"));
 					sticker7.setIcon(s7);
 				}
 				break;
 			case "s8":
 				if (eggCounter >= 35000) {
-					eggCounter -= 35000;	
+					eggCounter -= 35000;
 					ImageIcon s8 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker8.png"));
 					sticker8.setIcon(s8);
 				}
 				break;
 			case "s9":
 				if (eggCounter >= 40000) {
-					eggCounter -= 40000;	
+					eggCounter -= 40000;
 					ImageIcon s9 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker9.png"));
 					sticker9.setIcon(s9);
 				}
 				break;
 			case "s10":
 				if (eggCounter >= 45000) {
-					eggCounter -= 45000;	
+					eggCounter -= 45000;
 					ImageIcon s10 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker10.png"));
 					sticker10.setIcon(s10);
 				}
 				break;
 			case "s11":
 				if (eggCounter >= 50000) {
-					eggCounter -= 50000;	
+					eggCounter -= 50000;
 					ImageIcon s11 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker11.png"));
 					sticker11.setIcon(s11);
 				}
 				break;
 			case "s12":
 				if (eggCounter >= 55000) {
-					eggCounter -= 55000;	
+					eggCounter -= 55000;
 					ImageIcon s12 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker12.png"));
 					sticker12.setIcon(s12);
 				}
 				break;
 			}
-			
 
 		}
 	}
-	
+
+	/**
+	 * 
+	 * class MouseHandler to implement what happens when hovering your mouse over
+	 * certain elements
+	 *
+	 */
 	public class MouseHandler implements MouseListener {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
 
+		/**
+		 * method that gives description of each button as you hover over it
+		 */
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			
-			JButton button = (JButton)e.getSource();
-			
-			if (button == button1 ) {
+
+			JButton button = (JButton) e.getSource();
+
+			if (button == button1) {
 				messageText.setText("Blanket");
 				descriptionText.setText("keep gudetama warm");
 				descriptionText2.setText("increases by 0.1 eggs per sec");
 				descriptionText3.setText(String.format("price: %d eggs", blanketPrice));
-			}
-			else if (button == button2) {
+			} else if (button == button2) {
 				messageText.setText("Love");
 				descriptionText.setText("give gudetama love");
 				descriptionText2.setText("increases by 1 eggs per sec");
 				descriptionText3.setText(String.format("price: %d eggs", lovePrice));
-			}
-			else if (button == button3) {
+			} else if (button == button3) {
 				messageText.setText("Music");
 				descriptionText.setText("gudetama loves groovy music");
 				descriptionText2.setText("increases by 10 eggs per sec");
 				descriptionText3.setText(String.format("price: %d eggs", musicPrice));
-			}
-			else if (button == button4) {
+			} else if (button == button4) {
 				messageText.setText("Sleep");
 				descriptionText.setText("gudetama's nap time");
 				descriptionText2.setText("increases by 15 eggs per sec");
 				descriptionText3.setText(String.format("price: %d eggs", sleepPrice));
-			}
-			else if (button == button5) {
+			} else if (button == button5) {
 				messageText.setText("Home");
 				descriptionText.setText("gudetama's shell and gudetama are one");
 				descriptionText2.setText("increases by 20 eggs per sec");
 				descriptionText3.setText(String.format("price: %d eggs", homePrice));
-			}
-			else if (button == button6) {
+			} else if (button == button6) {
 				messageText.setText("Lazy");
 				descriptionText.setText("gudetama the lazy egg");
 				descriptionText2.setText("increases by 30 eggs per sec");
 				descriptionText3.setText(String.format("price: %d eggs", lazyPrice));
-			}
-			else if (button == sticker1) {
-				descriptionText.setText("Sticker price: 1000 eggs");				
-			}
-			else if (button == sticker2) {
-				descriptionText.setText("Sticker price: 5000 eggs");				
-			}
-			else if (button == sticker3) {
-				descriptionText.setText("Sticker price: 10000 eggs");				
-			}
-			else if (button == sticker4) {
-				descriptionText.setText("Sticker price: 15000 eggs");				
-			}
-			else if (button == sticker5) {
-				descriptionText.setText("Sticker price: 20000 eggs");				
-			}
-			else if (button == sticker6) {
-				descriptionText.setText("Sticker price: 25000 eggs");				
-			}
-			else if (button == sticker7) {
-				descriptionText.setText("Sticker price: 30000 eggs");				
-			}
-			else if (button == sticker8) {
-				descriptionText.setText("Sticker price: 35000 eggs");				
-			}
-			else if (button == sticker9) {
-				descriptionText.setText("Sticker price: 40000 eggs");				
-			}
-			else if (button == sticker10) {
-				descriptionText.setText("Sticker price: 45000 eggs");				
-			}
-			else if (button == sticker11) {
-				descriptionText.setText("Sticker price: 50000 eggs");				
-			}
-			else if (button == sticker12) {
-				descriptionText.setText("Sticker price: 55000 eggs");				
+			} else if (button == sticker1) {
+				descriptionText.setText("Sticker price: 1000 eggs");
+			} else if (button == sticker2) {
+				descriptionText.setText("Sticker price: 5000 eggs");
+			} else if (button == sticker3) {
+				descriptionText.setText("Sticker price: 10000 eggs");
+			} else if (button == sticker4) {
+				descriptionText.setText("Sticker price: 15000 eggs");
+			} else if (button == sticker5) {
+				descriptionText.setText("Sticker price: 20000 eggs");
+			} else if (button == sticker6) {
+				descriptionText.setText("Sticker price: 25000 eggs");
+			} else if (button == sticker7) {
+				descriptionText.setText("Sticker price: 30000 eggs");
+			} else if (button == sticker8) {
+				descriptionText.setText("Sticker price: 35000 eggs");
+			} else if (button == sticker9) {
+				descriptionText.setText("Sticker price: 40000 eggs");
+			} else if (button == sticker10) {
+				descriptionText.setText("Sticker price: 45000 eggs");
+			} else if (button == sticker11) {
+				descriptionText.setText("Sticker price: 50000 eggs");
+			} else if (button == sticker12) {
+				descriptionText.setText("Sticker price: 55000 eggs");
 			}
 		}
 
+		/**
+		 * description disappears as your mouse leaves the element
+		 */
 		@Override
 		public void mouseExited(MouseEvent e) {
-		    messageText.setText(null);
-		    descriptionText.setText(null);
-		    descriptionText2.setText(null);
-		    descriptionText3.setText(null);
-			}
-			
-		
-		
+			messageText.setText(null);
+			descriptionText.setText(null);
+			descriptionText2.setText(null);
+			descriptionText3.setText(null);
+		}
+
 	}
 
 }
