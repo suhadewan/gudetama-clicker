@@ -1,5 +1,4 @@
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.Timer;
@@ -46,11 +44,11 @@ class LazyEggClicker {
 	private Font font2;
 	private EggHandler egghandled = new EggHandler();
 	private Timer timer;
-	private JTextArea messageText;
+	private JLabel messageText;
 	private MouseHandler mousehandled = new MouseHandler();
-	private JTextArea descriptionText;
-	private JTextArea descriptionText2;
-	private JTextArea descriptionText3;
+	private JLabel descriptionText;
+	private JLabel descriptionText2;
+	private JLabel descriptionText3;
 	
 
 	public static void main(String[] args) {
@@ -123,28 +121,28 @@ class LazyEggClicker {
 		messagePanel.setLayout(new GridLayout(4, 1));
 		window.add(messagePanel);
 		
-		messageText = new JTextArea();
+		messageText = new JLabel();
 		messageText.setBounds(365,170,335,104);
 		messageText.setForeground(Color.white);
 		messageText.setBackground(Color.orange);
 		messageText.setFont(font2);
 		messagePanel.add(messageText);
 		
-		descriptionText = new JTextArea();
+		descriptionText = new JLabel();
 		descriptionText.setBounds(365,170,335,104);
 		descriptionText.setForeground(Color.white);
 		descriptionText.setBackground(Color.orange);
 		descriptionText.setFont(font2);
 		messagePanel.add(descriptionText);
 		
-		descriptionText2 = new JTextArea();
+		descriptionText2 = new JLabel();
 		descriptionText2.setBounds(365,170,335,104);
 		descriptionText2.setForeground(Color.white);
 		descriptionText2.setBackground(Color.orange);
 		descriptionText2.setFont(font2);
 		messagePanel.add(descriptionText2);
 		
-		descriptionText3 = new JTextArea();
+		descriptionText3 = new JLabel();
 		descriptionText3.setBounds(365,170,335,104);
 		descriptionText3.setForeground(Color.white);
 		descriptionText3.setBackground(Color.orange);
@@ -237,21 +235,6 @@ class LazyEggClicker {
 		button6.setActionCommand("lazy");
 		button6.addMouseListener(mousehandled);
 		itemPanel.add(button6);
-
-//		JPanel messagePanel = new JPanel();
-//		messagePanel.setBounds(500, 200, 250, 150);
-//		messagePanel.setBackground(Color.black);
-//		window.add(messagePanel);
-
-//		messageText = new JTextArea();
-//		messageText.setBounds(500, 200, 250, 150);
-//		messageText.setForeground(Color.white);
-//		messageText.setBackground(Color.black);
-//		messageText.setFont(font2);
-//		messageText.setLineWrap(true);
-//		messageText.setWrapStyleWord(true);
-//		messageText.setEditable(false);
-//		messagePanel.add(messageText);
 
 		window.setVisible(true);
 	}
