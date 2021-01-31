@@ -47,6 +47,7 @@ class LazyEggClicker {
 	Timer timer;
 	JTextArea messageText;
 	MouseHandler mousehandled = new MouseHandler();
+	JTextArea descriptionText;
 	
 
 	public static void main(String[] args) {
@@ -116,6 +117,7 @@ class LazyEggClicker {
 		JPanel messagePanel = new JPanel();
 		messagePanel.setBounds(365,170,335,104);
 		messagePanel.setBackground(Color.orange);
+		messagePanel.setLayout(new GridLayout(2, 1));
 		window.add(messagePanel);
 		
 		messageText = new JTextArea();
@@ -124,6 +126,13 @@ class LazyEggClicker {
 		messageText.setBackground(Color.orange);
 		messageText.setFont(font2);
 		messagePanel.add(messageText);
+		
+		descriptionText = new JTextArea();
+		descriptionText.setBounds(365,170,335,104);
+		descriptionText.setForeground(Color.white);
+		descriptionText.setBackground(Color.orange);
+		descriptionText.setFont(font2);
+		messagePanel.add(descriptionText);
 
 		counterLabel = new JLabel(String.format("%.0f eggs", eggCounter));
 		counterLabel.setForeground(Color.white);
@@ -363,6 +372,7 @@ class LazyEggClicker {
 			
 			if (button == button1 ) {
 				messageText.setText("blanket");
+				descriptionText.setText("Autoclicks once every 10 seconds");
 			}
 			else if (button == button2) {
 				messageText.setText("love");
@@ -384,6 +394,7 @@ class LazyEggClicker {
 		@Override
 		public void mouseExited(MouseEvent e) {
 		    messageText.setText(null);
+		    descriptionText.setText(null);
 			}
 			
 		
