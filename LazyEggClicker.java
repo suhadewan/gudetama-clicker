@@ -30,12 +30,12 @@ class LazyEggClicker {
 	int lovePrice = 10;
 	int musicNum;
 	int musicPrice = 50;
-	int incubatorNum;
-	int incubatorPrice = 100;
-	int baconNum;
-	int baconPrice = 150;
-	int farmNum;
-	int farmPrice = 200;
+	int sleepNum;
+	int sleepPrice = 100;
+	int homeNum;
+	int homePrice = 150;
+	int lazyNum;
+	int lazyPrice = 200;
 	double perSec;
 	boolean timerOn;
 	Font font1;
@@ -43,6 +43,7 @@ class LazyEggClicker {
 	EggHandler handled = new EggHandler();
 	Timer timer;
 	JTextArea messageText;
+	JLabel blanketLabel;
 
 	public static void main(String[] args) {
 		new LazyEggClicker();
@@ -55,7 +56,9 @@ class LazyEggClicker {
 		blanketNum = 0;
 		loveNum = 0;
 		musicNum = 0;
-		incubatorNum = 0;
+		sleepNum = 0;
+		homeNum = 0;
+		lazyNum = 0;
 		createFont();
 		createUI();
 	}
@@ -120,6 +123,8 @@ class LazyEggClicker {
 		itemPanel.setBackground(Color.blue);
 		itemPanel.setLayout(new GridLayout(1, 6));
 		window.add(itemPanel);
+		
+		
 
 		ImageIcon blanket = new ImageIcon(getClass().getClassLoader().getResource("pictures/blanket.png"));
 		
@@ -154,30 +159,44 @@ class LazyEggClicker {
 		button3.setActionCommand("music");
 		itemPanel.add(button3);
 		
-		button4 = new JButton("Incubator");
-		button4.setFont(font1);
+		ImageIcon sleep = new ImageIcon(getClass().getClassLoader().getResource("pictures/sleep.png"));
+		
+		button4 = new JButton();
+		button4.setBackground(Color.white);
 		button4.setFocusPainted(false);
+		button4.setBorder(null);
+		button4.setIcon(sleep);
 		button4.addActionListener(handled);
-		button4.setActionCommand("Incubator");
+		button4.setActionCommand("sleep");
 		itemPanel.add(button4);
-		button5 = new JButton("Bacon");
-		button5.setFont(font1);
+		
+		ImageIcon home = new ImageIcon(getClass().getClassLoader().getResource("pictures/home.png"));
+		
+		button5 = new JButton();
+		button5.setBackground(Color.white);
 		button5.setFocusPainted(false);
+		button5.setBorder(null);
+		button5.setIcon(home);
 		button5.addActionListener(handled);
-		button5.setActionCommand("Bacon");
+		button5.setActionCommand("home");
 		itemPanel.add(button5);
-		button6 = new JButton("Farm");
-		button6.setFont(font1);
+		
+		ImageIcon lazy = new ImageIcon(getClass().getClassLoader().getResource("pictures/lazy.png"));
+		
+		button6 = new JButton();
+		button6.setBackground(Color.white);
 		button6.setFocusPainted(false);
+		button6.setBorder(null);
+		button6.setIcon(lazy);
 		button6.addActionListener(handled);
-		button6.setActionCommand("Farm");
+		button6.setActionCommand("lazy");
 		itemPanel.add(button6);
 
 //		JPanel messagePanel = new JPanel();
 //		messagePanel.setBounds(500, 200, 250, 150);
 //		messagePanel.setBackground(Color.black);
 //		window.add(messagePanel);
-//
+
 //		messageText = new JTextArea();
 //		messageText.setBounds(500, 200, 250, 150);
 //		messageText.setForeground(Color.white);
@@ -259,35 +278,35 @@ class LazyEggClicker {
 
 				}
 				break;
-			case "Incubator":
-				if (eggCounter >= incubatorPrice) {
-					eggCounter -= incubatorPrice;
-					incubatorPrice += 15;
+			case "sleep":
+				if (eggCounter >= sleepPrice) {
+					eggCounter -= sleepPrice;
+					sleepPrice += 15;
 					perSec += 15;
-					incubatorNum++;
-					button4.setText(String.format("Incubator (%d)", incubatorNum));
+					sleepNum++;
+					button4.setText(String.format("Sleep (%d)", sleepNum));
 					timerUpdate();
 
 				}
 				break;
-			case "Bacon":
-				if (eggCounter >= baconPrice) {
-					eggCounter -= baconPrice;
-					baconPrice += 20;
+			case "home":
+				if (eggCounter >= homePrice) {
+					eggCounter -= homePrice;
+					homePrice += 20;
 					perSec += 20;
-					baconNum++;
-					button5.setText(String.format("Bacon (%d)", baconNum));
+					homeNum++;
+					button5.setText(String.format("Home (%d)", homeNum));
 					timerUpdate();
 
 				}
 				break;
-			case "Farm":
-				if (eggCounter >= farmPrice) {
-					eggCounter -= farmPrice;
-					farmPrice += 30;
+			case "lazy":
+				if (eggCounter >= lazyPrice) {
+					eggCounter -= lazyPrice;
+					lazyPrice += 30;
 					perSec += 30;
-					farmNum++;
-					button6.setText(String.format("Farm (%d)", farmNum));
+					lazyNum++;
+					button6.setText(String.format("Lazy (%d)", lazyNum));
 					timerUpdate();
 
 				}
