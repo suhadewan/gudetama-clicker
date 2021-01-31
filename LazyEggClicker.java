@@ -27,15 +27,15 @@ class LazyEggClicker {
 	int blanketNum;
 	int blanketPrice = 1;
 	int loveNum;
-	int lovePrice=10;
+	int lovePrice = 10;
 	int musicNum;
-	int musicPrice=50;
+	int musicPrice = 50;
 	int incubatorNum;
 	int incubatorPrice = 100;
 	int baconNum;
-	int baconPrice=150;
+	int baconPrice = 150;
 	int farmNum;
-	int farmPrice=200;
+	int farmPrice = 200;
 	double perSec;
 	boolean timerOn;
 	Font font1;
@@ -72,16 +72,15 @@ class LazyEggClicker {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setBackground(Color.WHITE);
 		window.setLayout(null);
-		
+
 		JPanel title = new JPanel();
 		title.setBounds(30, 30, 669, 115);
 		title.setBackground(null);
 		window.add(title);
-		
-		JLabel titlePic = new JLabel(new ImageIcon(getClass().getClassLoader()
-				.getResource("pictures/title.png")));
+
+		JLabel titlePic = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("pictures/title.png")));
 		title.add(titlePic);
-		
+
 		JPanel eggPanel = new JPanel();
 		eggPanel.setBounds(30, 175, 669, 597);
 		eggPanel.setBackground(Color.orange);
@@ -159,20 +158,20 @@ class LazyEggClicker {
 		button6.setActionCommand("Farm");
 		itemPanel.add(button6);
 
-		JPanel messagePanel = new JPanel();
-		messagePanel.setBounds(500, 200, 250, 150);
-		messagePanel.setBackground(Color.black);
-		window.add(messagePanel);
-
-		messageText = new JTextArea();
-		messageText.setBounds(500, 200, 250, 150);
-		messageText.setForeground(Color.white);
-		messageText.setBackground(Color.black);
-		messageText.setFont(font2);
-		messageText.setLineWrap(true);
-		messageText.setWrapStyleWord(true);
-		messageText.setEditable(false);
-		messagePanel.add(messageText);
+//		JPanel messagePanel = new JPanel();
+//		messagePanel.setBounds(500, 200, 250, 150);
+//		messagePanel.setBackground(Color.black);
+//		window.add(messagePanel);
+//
+//		messageText = new JTextArea();
+//		messageText.setBounds(500, 200, 250, 150);
+//		messageText.setForeground(Color.white);
+//		messageText.setBackground(Color.black);
+//		messageText.setFont(font2);
+//		messageText.setLineWrap(true);
+//		messageText.setWrapStyleWord(true);
+//		messageText.setEditable(false);
+//		messagePanel.add(messageText);
 
 		window.setVisible(true);
 	}
@@ -222,8 +221,8 @@ class LazyEggClicker {
 					blanketNum++;
 					button1.setText(String.format("Blanket (%d)", blanketNum));
 					timerUpdate();
-					break;
 				}
+				break;
 			case "Love":
 				if (eggCounter >= lovePrice) {
 					eggCounter -= lovePrice;
@@ -232,8 +231,8 @@ class LazyEggClicker {
 					loveNum++;
 					button2.setText(String.format("Love (%d)", loveNum));
 					timerUpdate();
-					break;
 				}
+				break;
 			case "Music":
 				if (eggCounter >= musicPrice) {
 					eggCounter -= musicPrice;
@@ -242,8 +241,9 @@ class LazyEggClicker {
 					musicNum++;
 					button3.setText(String.format("Music (%d)", musicNum));
 					timerUpdate();
-					break;
+
 				}
+				break;
 			case "Incubator":
 				if (eggCounter >= incubatorPrice) {
 					eggCounter -= incubatorPrice;
@@ -252,8 +252,9 @@ class LazyEggClicker {
 					incubatorNum++;
 					button4.setText(String.format("Incubator (%d)", incubatorNum));
 					timerUpdate();
-					break;
+
 				}
+				break;
 			case "Bacon":
 				if (eggCounter >= baconPrice) {
 					eggCounter -= baconPrice;
@@ -262,8 +263,9 @@ class LazyEggClicker {
 					baconNum++;
 					button5.setText(String.format("Bacon (%d)", baconNum));
 					timerUpdate();
-					break;
+
 				}
+				break;
 			case "Farm":
 				if (eggCounter >= farmPrice) {
 					eggCounter -= farmPrice;
@@ -272,8 +274,9 @@ class LazyEggClicker {
 					farmNum++;
 					button6.setText(String.format("Farm (%d)", farmNum));
 					timerUpdate();
-					break;
+
 				}
+				break;
 			}
 
 		}
