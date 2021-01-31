@@ -143,12 +143,17 @@ class LazyEggClicker {
 		button2.setActionCommand("love");
 		itemPanel.add(button2);
 		
-		button3 = new JButton("Music");
-		button3.setFont(font1);
+		ImageIcon music = new ImageIcon(getClass().getClassLoader().getResource("pictures/music.png"));
+		
+		button3 = new JButton();
+		button3.setBackground(Color.white);
 		button3.setFocusPainted(false);
+		button3.setBorder(null);
+		button3.setIcon(music);
 		button3.addActionListener(handled);
-		button3.setActionCommand("Music");
+		button3.setActionCommand("music");
 		itemPanel.add(button3);
+		
 		button4 = new JButton("Incubator");
 		button4.setFont(font1);
 		button4.setFocusPainted(false);
@@ -243,7 +248,7 @@ class LazyEggClicker {
 					timerUpdate();
 				}
 				break;
-			case "Music":
+			case "music":
 				if (eggCounter >= musicPrice) {
 					eggCounter -= musicPrice;
 					musicPrice += 10;
