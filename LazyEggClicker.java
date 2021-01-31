@@ -161,6 +161,7 @@ class LazyEggClicker {
 		button2.setIcon(love);
 		button2.addActionListener(egghandled);
 		button2.setActionCommand("love");
+		button2.addMouseListener(mousehandled);
 		itemPanel.add(button2);
 		
 		ImageIcon music = new ImageIcon(getClass().getClassLoader().getResource("pictures/music.png"));
@@ -172,6 +173,7 @@ class LazyEggClicker {
 		button3.setIcon(music);
 		button3.addActionListener(egghandled);
 		button3.setActionCommand("music");
+		button3.addMouseListener(mousehandled);
 		itemPanel.add(button3);
 		
 		ImageIcon sleep = new ImageIcon(getClass().getClassLoader().getResource("pictures/sleep.png"));
@@ -183,6 +185,7 @@ class LazyEggClicker {
 		button4.setIcon(sleep);
 		button4.addActionListener(egghandled);
 		button4.setActionCommand("sleep");
+		button4.addMouseListener(mousehandled);
 		itemPanel.add(button4);
 		
 		ImageIcon home = new ImageIcon(getClass().getClassLoader().getResource("pictures/home.png"));
@@ -194,6 +197,7 @@ class LazyEggClicker {
 		button5.setIcon(home);
 		button5.addActionListener(egghandled);
 		button5.setActionCommand("home");
+		button5.addMouseListener(mousehandled);
 		itemPanel.add(button5);
 		
 		ImageIcon lazy = new ImageIcon(getClass().getClassLoader().getResource("pictures/lazy.png"));
@@ -205,6 +209,7 @@ class LazyEggClicker {
 		button6.setIcon(lazy);
 		button6.addActionListener(egghandled);
 		button6.setActionCommand("lazy");
+		button6.addMouseListener(mousehandled);
 		itemPanel.add(button6);
 
 //		JPanel messagePanel = new JPanel();
@@ -362,19 +367,26 @@ class LazyEggClicker {
 			else if (button == button2) {
 				messageText.setText("love");
 			}
-			
+			else if (button == button3) {
+				messageText.setText("music");
+			}
+			else if (button == button4) {
+				messageText.setText("sleep");
+			}
+			else if (button == button5) {
+				messageText.setText("home");
+			}
+			else if (button == button6) {
+				messageText.setText("lazy");
+			}
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			
-			JButton button = (JButton)e.getSource();
-			
-			if (button == button1 ) {
-				messageText.setText(null);
+		    messageText.setText(null);
 			}
 			
-		}
+		
 		
 	}
 
