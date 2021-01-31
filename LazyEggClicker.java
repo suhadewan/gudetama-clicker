@@ -2,12 +2,15 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.Timer;
@@ -40,10 +43,11 @@ class LazyEggClicker {
 	boolean timerOn;
 	Font font1;
 	Font font2;
-	EggHandler handled = new EggHandler();
+	EggHandler egghandled = new EggHandler();
 	Timer timer;
 	JTextArea messageText;
-	JLabel blanketLabel;
+	MouseHandler mousehandled = new MouseHandler();
+	
 
 	public static void main(String[] args) {
 		new LazyEggClicker();
@@ -83,6 +87,7 @@ class LazyEggClicker {
 
 		JLabel titlePic = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("pictures/title.png")));
 		title.add(titlePic);
+		
 
 		JPanel eggPanel = new JPanel();
 		eggPanel.setBounds(30, 274, 670, 560);
@@ -98,15 +103,27 @@ class LazyEggClicker {
 
 		eggButton.setIcon(egg);
 
-		eggButton.addActionListener(handled);
+		eggButton.addActionListener(egghandled);
 		eggButton.setActionCommand("egg");
 		eggPanel.add(eggButton);
 
 		JPanel counterPanel = new JPanel();
-		counterPanel.setBounds(30, 170, 670, 104);
+		counterPanel.setBounds(30, 170, 335, 104);
 		counterPanel.setBackground(Color.orange);
 		counterPanel.setLayout(new GridLayout(2, 1));
 		window.add(counterPanel);
+		
+		JPanel messagePanel = new JPanel();
+		messagePanel.setBounds(365,170,335,104);
+		messagePanel.setBackground(Color.orange);
+		window.add(messagePanel);
+		
+		messageText = new JTextArea();
+		messageText.setBounds(365,170,335,104);
+		messageText.setForeground(Color.white);
+		messageText.setBackground(Color.orange);
+		messageText.setFont(font2);
+		messagePanel.add(messageText);
 
 		counterLabel = new JLabel(String.format("%.0f eggs", eggCounter));
 		counterLabel.setForeground(Color.white);
@@ -120,11 +137,8 @@ class LazyEggClicker {
 
 		JPanel itemPanel = new JPanel();
 		itemPanel.setBounds(30, 834, 1380, 135);
-		itemPanel.setBackground(Color.blue);
 		itemPanel.setLayout(new GridLayout(1, 6));
 		window.add(itemPanel);
-		
-		
 
 		ImageIcon blanket = new ImageIcon(getClass().getClassLoader().getResource("pictures/blanket.png"));
 		
@@ -133,8 +147,9 @@ class LazyEggClicker {
 		button1.setFocusPainted(false);
 		button1.setBorder(null);
 		button1.setIcon(blanket);
-		button1.addActionListener(handled);
+		button1.addActionListener(egghandled);
 		button1.setActionCommand("blanket");
+		button1.addMouseListener(mousehandled);
 		itemPanel.add(button1);
 		
 		ImageIcon love = new ImageIcon(getClass().getClassLoader().getResource("pictures/love.png"));
@@ -144,7 +159,7 @@ class LazyEggClicker {
 		button2.setFocusPainted(false);
 		button2.setBorder(null);
 		button2.setIcon(love);
-		button2.addActionListener(handled);
+		button2.addActionListener(egghandled);
 		button2.setActionCommand("love");
 		itemPanel.add(button2);
 		
@@ -155,7 +170,7 @@ class LazyEggClicker {
 		button3.setFocusPainted(false);
 		button3.setBorder(null);
 		button3.setIcon(music);
-		button3.addActionListener(handled);
+		button3.addActionListener(egghandled);
 		button3.setActionCommand("music");
 		itemPanel.add(button3);
 		
@@ -166,7 +181,7 @@ class LazyEggClicker {
 		button4.setFocusPainted(false);
 		button4.setBorder(null);
 		button4.setIcon(sleep);
-		button4.addActionListener(handled);
+		button4.addActionListener(egghandled);
 		button4.setActionCommand("sleep");
 		itemPanel.add(button4);
 		
@@ -177,7 +192,7 @@ class LazyEggClicker {
 		button5.setFocusPainted(false);
 		button5.setBorder(null);
 		button5.setIcon(home);
-		button5.addActionListener(handled);
+		button5.addActionListener(egghandled);
 		button5.setActionCommand("home");
 		itemPanel.add(button5);
 		
@@ -188,7 +203,7 @@ class LazyEggClicker {
 		button6.setFocusPainted(false);
 		button6.setBorder(null);
 		button6.setIcon(lazy);
-		button6.addActionListener(handled);
+		button6.addActionListener(egghandled);
 		button6.setActionCommand("lazy");
 		itemPanel.add(button6);
 
@@ -314,6 +329,53 @@ class LazyEggClicker {
 			}
 
 		}
+	}
+	
+	public class MouseHandler implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			
+			JButton button = (JButton)e.getSource();
+			
+			if (button == button1 ) {
+				messageText.setText("blanket");
+			}
+			else if (button == button2) {
+				messageText.setText("love");
+			}
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			
+			JButton button = (JButton)e.getSource();
+			
+			if (button == button1 ) {
+				messageText.setText(null);
+			}
+			
+		}
+		
 	}
 
 }
