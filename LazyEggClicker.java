@@ -68,7 +68,7 @@ class LazyEggClicker {
 
 	public void createUI() {
 		JFrame window = new JFrame();
-		window.setSize(800, 800);
+		window.setSize(1440, 1024);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.getContentPane().setBackground(Color.WHITE);
 		window.setLayout(null);
@@ -82,14 +82,14 @@ class LazyEggClicker {
 		title.add(titlePic);
 
 		JPanel eggPanel = new JPanel();
-		eggPanel.setBounds(30, 175, 669, 597);
+		eggPanel.setBounds(30, 274, 670, 560);
 		eggPanel.setBackground(Color.orange);
 		window.add(eggPanel);
 
 		ImageIcon egg = new ImageIcon(getClass().getClassLoader().getResource("pictures/eggbutton.png"));
 
 		JButton eggButton = new JButton();
-		eggButton.setBackground(Color.green);
+		eggButton.setBackground(Color.white);
 		eggButton.setFocusPainted(false);
 		eggButton.setBorder(null);
 
@@ -100,8 +100,8 @@ class LazyEggClicker {
 		eggPanel.add(eggButton);
 
 		JPanel counterPanel = new JPanel();
-		counterPanel.setBounds(30, 175, 200, 100);
-		counterPanel.setBackground(Color.magenta);
+		counterPanel.setBounds(30, 170, 670, 104);
+		counterPanel.setBackground(Color.orange);
 		counterPanel.setLayout(new GridLayout(2, 1));
 		window.add(counterPanel);
 
@@ -116,9 +116,9 @@ class LazyEggClicker {
 		counterPanel.add(perSecLabel);
 
 		JPanel itemPanel = new JPanel();
-		itemPanel.setBounds(500, 200, 250, 250);
+		itemPanel.setBounds(30, 834, 1380, 135);
 		itemPanel.setBackground(Color.blue);
-		itemPanel.setLayout(new GridLayout(4, 1));
+		itemPanel.setLayout(new GridLayout(1, 6));
 		window.add(itemPanel);
 
 		button1 = new JButton("Blanket");
