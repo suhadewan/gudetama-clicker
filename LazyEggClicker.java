@@ -35,7 +35,7 @@ class LazyEggClicker {
 	int baconNum;
 	int baconPrice=150;
 	int farmNum;
-	int farmPrice=180;
+	int farmPrice=200;
 	double perSec;
 	boolean timerOn;
 	Font font1;
@@ -250,6 +250,26 @@ class LazyEggClicker {
 					perSec += 15;
 					incubatorNum++;
 					button4.setText(String.format("Incubator (%d)", incubatorNum));
+					timerUpdate();
+					break;
+				}
+			case "Bacon":
+				if (eggCounter >= baconPrice) {
+					eggCounter -= baconPrice;
+					baconPrice += 20;
+					perSec += 20;
+					baconNum++;
+					button5.setText(String.format("Bacon (%d)", baconNum));
+					timerUpdate();
+					break;
+				}
+			case "Farm":
+				if (eggCounter >= farmPrice) {
+					eggCounter -= farmPrice;
+					farmPrice += 30;
+					perSec += 30;
+					farmNum++;
+					button6.setText(String.format("Farm (%d)", farmNum));
 					timerUpdate();
 					break;
 				}
