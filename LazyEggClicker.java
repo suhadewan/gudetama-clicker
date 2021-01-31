@@ -19,6 +19,8 @@ class LazyEggClicker {
 	JButton button2;
 	JButton button3;
 	JButton button4;
+	JButton button5;
+	JButton button6;
 	JLabel perSecLabel;
 	double eggCounter;
 	int timerSpeed;
@@ -31,9 +33,9 @@ class LazyEggClicker {
 	int incubatorNum;
 	int incubatorPrice = 100;
 	int baconNum;
-	int baconPrice;
+	int baconPrice=150;
 	int farmNum;
-	int farmPrice;
+	int farmPrice=180;
 	double perSec;
 	boolean timerOn;
 	Font font1;
@@ -143,6 +145,18 @@ class LazyEggClicker {
 		button4.addActionListener(handled);
 		button4.setActionCommand("Incubator");
 		itemPanel.add(button4);
+		button5 = new JButton("Bacon");
+		button5.setFont(font1);
+		button5.setFocusPainted(false);
+		button5.addActionListener(handled);
+		button5.setActionCommand("Bacon");
+		itemPanel.add(button5);
+		button6 = new JButton("Farm");
+		button6.setFont(font1);
+		button6.setFocusPainted(false);
+		button6.addActionListener(handled);
+		button6.setActionCommand("Farm");
+		itemPanel.add(button6);
 
 		JPanel messagePanel = new JPanel();
 		messagePanel.setBounds(500, 200, 250, 150);
@@ -226,6 +240,16 @@ class LazyEggClicker {
 					perSec += 10;
 					musicNum++;
 					button3.setText(String.format("Music (%d)", musicNum));
+					timerUpdate();
+					break;
+				}
+			case "Incubator":
+				if (eggCounter >= incubatorPrice) {
+					eggCounter -= incubatorPrice;
+					incubatorPrice += 15;
+					perSec += 15;
+					incubatorNum++;
+					button4.setText(String.format("Incubator (%d)", incubatorNum));
 					timerUpdate();
 					break;
 				}
