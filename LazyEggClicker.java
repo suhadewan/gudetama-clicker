@@ -601,37 +601,37 @@ class LazyEggClicker {
 				messageText.setText("Blanket");
 				descriptionText.setText("keep gudetama warm");
 				descriptionText2.setText("increases by 0.1 eggs per sec");
-				descriptionText3.setText("price: 1 egg");
+				descriptionText3.setText(String.format("price: %d eggs", blanketPrice));
 			}
 			else if (button == button2) {
 				messageText.setText("Love");
 				descriptionText.setText("give gudetama love");
 				descriptionText2.setText("increases by 1 eggs per sec");
-				descriptionText3.setText("price: 10 eggs");
+				descriptionText3.setText(String.format("price: %d eggs", lovePrice));
 			}
 			else if (button == button3) {
 				messageText.setText("Music");
 				descriptionText.setText("gudetama loves groovy music");
 				descriptionText2.setText("increases by 10 eggs per sec");
-				descriptionText3.setText("price: 50 eggs");
+				descriptionText3.setText(String.format("price: %d eggs", musicPrice));
 			}
 			else if (button == button4) {
 				messageText.setText("Sleep");
 				descriptionText.setText("gudetama's nap time");
 				descriptionText2.setText("increases by 15 eggs per sec");
-				descriptionText3.setText("price: 100 eggs");
+				descriptionText3.setText(String.format("price: %d eggs", sleepPrice));
 			}
 			else if (button == button5) {
 				messageText.setText("Home");
 				descriptionText.setText("gudetama's shell and gudetama are one");
 				descriptionText2.setText("increases by 20 eggs per sec");
-				descriptionText3.setText("price: 150 eggs");
+				descriptionText3.setText(String.format("price: %d eggs", homePrice));
 			}
 			else if (button == button6) {
 				messageText.setText("Lazy");
 				descriptionText.setText("gudetama the lazy egg");
 				descriptionText2.setText("increases by 30 eggs per sec");
-				descriptionText3.setText("price: 200 eggs");
+				descriptionText3.setText(String.format("price: %d eggs", lazyPrice));
 			}
 			else if (button == sticker1) {
 				descriptionText.setText("Sticker price: 1000 eggs");				
