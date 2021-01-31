@@ -78,11 +78,12 @@ class LazyEggClicker {
 		title.setBackground(null);
 		window.add(title);
 		
-		JLabel titlePic = new JLabel(new ImageIcon(getClass().getClassLoader().getResource("pictures/title.png")));
+		JLabel titlePic = new JLabel(new ImageIcon(getClass().getClassLoader()
+				.getResource("pictures/title.png")));
 		title.add(titlePic);
 		
 		JPanel eggPanel = new JPanel();
-		eggPanel.setBounds(30, 300, 200, 200);
+		eggPanel.setBounds(30, 175, 669, 597);
 		eggPanel.setBackground(Color.orange);
 		window.add(eggPanel);
 
