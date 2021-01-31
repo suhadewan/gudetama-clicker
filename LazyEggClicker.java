@@ -6,12 +6,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.GridLayout;
 
+import javax.swing.AbstractButton;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.Timer;
 
 class LazyEggClicker {
@@ -23,6 +24,7 @@ class LazyEggClicker {
 	private JButton button4;
 	private JButton button5;
 	private JButton button6;
+	private JButton sticker1;
 	private JLabel perSecLabel;
 	private double eggCounter;
 	private int timerSpeed;
@@ -49,6 +51,17 @@ class LazyEggClicker {
 	private JLabel descriptionText;
 	private JLabel descriptionText2;
 	private JLabel descriptionText3;
+	private JButton sticker2;
+	private JButton sticker3;
+	private JButton sticker4;
+	private JButton sticker5;
+	private JButton sticker6;
+	private JButton sticker7;
+	private JButton sticker8;
+	private JButton sticker9;
+	private JButton sticker10;
+	private JButton sticker11;
+	private JButton sticker12;
 	
 
 	public static void main(String[] args) {
@@ -158,6 +171,123 @@ class LazyEggClicker {
 		perSecLabel.setForeground(Color.white);
 		perSecLabel.setFont(font2);
 		counterPanel.add(perSecLabel);
+		
+		//stickers
+		JPanel stickerPanel = new JPanel();
+		stickerPanel.setBounds(740, 30, 670, 804);
+		stickerPanel.setLayout(new GridLayout(6, 2));
+		window.add(stickerPanel);
+		
+		ImageIcon lock = new ImageIcon(getClass().getClassLoader().getResource("pictures/lock.png"));
+		sticker1 = new JButton();
+		sticker1.setBackground(Color.white);
+		sticker1.setFocusPainted(false);
+		sticker1.setBorder(null);
+		sticker1.setIcon(lock);
+		sticker1.addActionListener(egghandled);
+		sticker1.setActionCommand("s1");
+		stickerPanel.add(sticker1);
+		
+		sticker2 = new JButton();
+		sticker2.setBackground(Color.white);
+		sticker2.setFocusPainted(false);
+		sticker2.setBorder(null);
+		sticker2.setIcon(lock);
+		sticker2.addActionListener(egghandled);
+		sticker2.setActionCommand("s2");
+		stickerPanel.add(sticker2);
+		
+		sticker3 = new JButton();
+		sticker3.setBackground(Color.white);
+		sticker3.setFocusPainted(false);
+		sticker3.setBorder(null);
+		sticker3.setIcon(lock);
+		sticker3.addActionListener(egghandled);
+		sticker3.setActionCommand("s3");
+		stickerPanel.add(sticker3);
+		
+		sticker4 = new JButton();
+		sticker4.setBackground(Color.white);
+		sticker4.setFocusPainted(false);
+		sticker4.setBorder(null);
+		sticker4.setIcon(lock);
+		sticker4.addActionListener(egghandled);
+		sticker4.setActionCommand("s4");
+		stickerPanel.add(sticker4);
+		
+		sticker5 = new JButton();
+		sticker5.setBackground(Color.white);
+		sticker5.setFocusPainted(false);
+		sticker5.setBorder(null);
+		sticker5.setIcon(lock);
+		sticker5.addActionListener(egghandled);
+		sticker5.setActionCommand("s5");
+		stickerPanel.add(sticker5);
+		
+		sticker6 = new JButton();
+		sticker6.setBackground(Color.white);
+		sticker6.setFocusPainted(false);
+		sticker6.setBorder(null);
+		sticker6.setIcon(lock);
+		sticker6.addActionListener(egghandled);
+		sticker6.setActionCommand("s6");
+		stickerPanel.add(sticker6);
+		
+		sticker7 = new JButton();
+		sticker7.setBackground(Color.white);
+		sticker7.setFocusPainted(false);
+		sticker7.setBorder(null);
+		sticker7.setIcon(lock);
+		sticker7.addActionListener(egghandled);
+		sticker7.setActionCommand("s7");
+		stickerPanel.add(sticker7);
+		
+		sticker8 = new JButton();
+		sticker8.setBackground(Color.white);
+		sticker8.setFocusPainted(false);
+		sticker8.setBorder(null);
+		sticker8.setIcon(lock);
+		sticker8.addActionListener(egghandled);
+		sticker8.setActionCommand("s8");
+		stickerPanel.add(sticker8);
+		
+		sticker9 = new JButton();
+		sticker9.setBackground(Color.white);
+		sticker9.setFocusPainted(false);
+		sticker9.setBorder(null);
+		sticker9.setIcon(lock);
+		sticker9.addActionListener(egghandled);
+		sticker9.setActionCommand("s9");
+		stickerPanel.add(sticker9);
+		
+		sticker10 = new JButton();
+		sticker10.setBackground(Color.white);
+		sticker10.setFocusPainted(false);
+		sticker10.setBorder(null);
+		sticker10.setIcon(lock);
+		sticker10.addActionListener(egghandled);
+		sticker10.setActionCommand("s10");
+		stickerPanel.add(sticker10);
+		
+		sticker11 = new JButton();
+		sticker11.setBackground(Color.white);
+		sticker11.setFocusPainted(false);
+		sticker11.setBorder(null);
+		sticker11.setIcon(lock);
+		sticker11.addActionListener(egghandled);
+		sticker11.setActionCommand("s11");
+		stickerPanel.add(sticker11);
+		
+		sticker12 = new JButton();
+		sticker12.setBackground(Color.white);
+		sticker12.setFocusPainted(false);
+		sticker12.setBorder(null);
+		sticker12.setIcon(lock);
+		sticker12.addActionListener(egghandled);
+		sticker12.setActionCommand("s12");
+		stickerPanel.add(sticker12);
+		
+		//store
 
 		JPanel itemPanel = new JPanel();
 		itemPanel.setBounds(30, 834, 1380, 135);
@@ -340,7 +470,92 @@ class LazyEggClicker {
 
 				}
 				break;
+			case "s1":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s1 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker1.png"));
+					sticker1.setIcon(s1);
+				}
+				break;
+			case "s2":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s2 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker2.png"));
+					sticker2.setIcon(s2);
+				}
+				break;
+			case "s3":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s3 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker3.png"));
+					sticker3.setIcon(s3);
+				}
+				break;
+			case "s4":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s4 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker4.png"));
+					sticker4.setIcon(s4);
+				}
+				break;
+			case "s5":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s5 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker5.png"));
+					sticker5.setIcon(s5);
+				}
+				break;
+			case "s6":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s6 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker6.png"));
+					sticker6.setIcon(s6);
+				}
+				break;
+			case "s7":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s7 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker7.png"));
+					sticker7.setIcon(s7);
+				}
+				break;
+			case "s8":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s8 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker8.png"));
+					sticker8.setIcon(s8);
+				}
+				break;
+			case "s9":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s9 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker9.png"));
+					sticker9.setIcon(s9);
+				}
+				break;
+			case "s10":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s10 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker10.png"));
+					sticker10.setIcon(s10);
+				}
+				break;
+			case "s11":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s11 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker11.png"));
+					sticker11.setIcon(s11);
+				}
+				break;
+			case "s12":
+				if (eggCounter >= 10) {
+					eggCounter -= 10;	
+					ImageIcon s12 = new ImageIcon(getClass().getClassLoader().getResource("pictures/sticker12.png"));
+					sticker12.setIcon(s12);
+				}
+				break;
 			}
+			
 
 		}
 	}
